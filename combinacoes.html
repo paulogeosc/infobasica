@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Simulação de combinações de bits</title>
+	<link rel="stylesheet" href="infobasica.css">
+	<script>
+		let numBits = 0;
+		let combinations = [];
+		let currentCombination = 0;
+
+		function init() {
+			// pede ao usuário o número de bits e verifica se é válido
+			do {
+				numBits = parseInt(prompt("Informe o número de bits (entre 1 e 8):"));
+			} while (isNaN(numBits) || numBits < 1 || numBits > 8);
+
+			// cria o array com todas as combinações possíveis
+			for (let i = 0; i < Math.pow(2, numBits); i++) {
+				combinations.push(i.toString(2).padStart(numBits, "0"));
+			}
+
+			// atualiza o título da página com o número de combinações possíveis
+			document.getElementById("title").textContent = `Simulação de combinações de bits - ${combinations.length} combinações possíveis`;
+
+			// exibe a primeira combinação
+			showCombination();
+
+			// registra o evento para mudar a combinação quando a barra de espaços for pressionada
+			document.addEventListener("keydown", handleKeyDown);
+		}
+
+		function showCombination() {
+			// cria um novo container para a combinação atual
+			const container = document.createElement("div");
+			container.classList.add("bit-container");
+
+			// adiciona um label com o número da combinação atual
+			const label = document.createElement("span");
+			label.textContent = `Combinação ${currentCombination + 1}/${combinations.length}:`;
+			container.appendChild(label);
+
+			// adiciona um box para cada bit da combinação
+			for (let i = 0; i < numBits; i++) {
+				const box = document.createElement("div");
+				box.classList.add("bit-desligado");
+				container.appendChild(box);
+			}
+
+			// converte a combinação atual para uma array de bits e atualiza os boxes correspondentes
+			const bits = combinations[currentCombination].split("");
+			const boxes = container.querySelectorAll(".bit-desligado, .bit-ligado");
+			for (let i = 0; i < bits.length; i++) {
+				if (bits[i] === "1") {
+					boxes[i].classList.remove("bit-desligado");
+					boxes[i].classList.add("bit-ligado");
+				}
+			}
+
+			// adiciona o container à página
+			document.body.appendChild(container);
+		}
+
+		function handleKeyDown(event) {
+			if (event.code === "Space") {
+				// remove o listener para evitar múltiplas chamadas
+				document.removeEventListener("keydown", handleKeyDown);
+
+				// avança para a próxima combinação ou exibe a mensagem de fim de combinações
+				currentCombination++;
+				if (currentCombination < combinations.length) {
+					showCombination();
+					// registra o evento novamente para mudar a combinação quando a barra de espaços for pressionada
+					document.addEventListener("keydown", handleKeyDown);
+				} else {
+					alert(`Todas as ${combinations.length} combinações foram exibidas.`);
+				}
+			}
+		}
+	</script>
+</head>
+<body onload="init()">
+	<h1 id="title">Simulação de combinações de bits</h1>
+</body>
+</html>
+

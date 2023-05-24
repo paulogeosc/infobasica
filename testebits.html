@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Representação binária de caracteres</title>
+	<link rel="stylesheet" href="infobasica.css">
+</head>
+<body>
+	<h1>Representação binária de caracteres</h1>
+	<form>
+		<div>
+			<label for="caractere1">Caractere 1:</label>
+			<input type="text" id="caractere1" maxlength="1" onkeyup="mostrarBinario(event, 'binario1', 'caractere2')" onblur="converterAscii('caractere1')">
+			<span id="binario1"></span>
+		</div>
+		<div>
+			<label for="caractere2">Caractere 2:</label>
+			<input type="text" id="caractere2" maxlength="1" onkeyup="mostrarBinario(event, 'binario2', 'caractere3')" onblur="converterAscii('caractere2')">
+			<span id="binario2"></span>
+		</div>
+		<div>
+			<label for="caractere3">Caractere 3:</label>
+			<input type="text" id="caractere3" maxlength="1" onkeyup="mostrarBinario(event, 'binario3', 'caractere4')" onblur="converterAscii('caractere3')">
+			<span id="binario3"></span>
+		</div>
+		<div>
+			<label for="caractere4">Caractere 4:</label>
+			<input type="text" id="caractere4" maxlength="1" onkeyup="mostrarBinario(event, 'binario4', 'caractere5')" onblur="converterAscii('caractere4')">
+			<span id="binario4"></span>
+		</div>
+		<div>
+			<label for="caractere5">Caractere 5:</label>
+			<input type="text" id="caractere5" maxlength="1" onkeyup="mostrarBinario(event, 'binario5', 'caractere6')" onblur="converterAscii('caractere5')">
+			<span id="binario5"></span>
+		</div>
+		<div>
+			<label for="caractere6">Caractere 6:</label>
+			<input type="text" id="caractere6" maxlength="1" onkeyup="mostrarBinario(event, 'binario6', 'caractere7')" onblur="converterAscii('caractere6')">
+			<span id="binario6"></span>
+		</div>
+		<div>
+			<label for="caractere7">Caractere 7:</label>
+			<input type="text" id="caractere7" maxlength="1" onkeyup="mostrarBinario(event, 'binario7', 'caractere8')" onblur="converterAscii('caractere7')">
+			<span id="binario7"></span>
+		</div>
+		<div>
+			<label for="caractere8">Caractere 8:</label>
+			<input type="text" id="caractere8" maxlength="1" onkeyup="mostrarBinario
+(event, 'binario8', 'caractere9')" onblur="converterAscii('caractere8')">
+			<span id="binario8"></span>
+		</div>
+		<div>
+			<label for="caractere9">Caractere 9:</label>
+			<input type="text" id="caractere9" maxlength="1" onkeyup="mostrarBinario(event, 'binario9', 'caractere10')" onblur="converterAscii('caractere9')">
+			<span id="binario9"></span>
+		</div>
+		<div>
+			<label for="caractere10">Caractere 10:</label>
+			<input type="text" id="caractere10" maxlength="1" onkeyup="mostrarBinario(event, 'binario10', '')" onblur="converterAscii('caractere10')">
+			<span id="binario10"></span>
+		</div>
+	</form>
+
+	<script>
+		function mostrarBinario(event, idBinario, idCampoSeguinte) {
+  // Verifica se a tecla pressionada é TAB
+  if (event.keyCode == 9) {
+    // Obtém o caractere digitado pelo usuário
+    var caractere = document.getElementById(event.target.id).value;
+
+    // Verifica se o campo atual contém um caractere válido
+    if (caractere.trim() == "") {
+      // Campo vazio, espera que o usuário digite um caractere válido
+      return;
+    }
+    if (caractere.length > 1) {
+      // Campo contém mais de um caractere, assume o primeiro caractere como válido
+      caractere = caractere.charAt(0);
+    }
+    if (caractere.charCodeAt(0) < 32 || caractere.charCodeAt(0) > 126) {
+      // Campo contém um caractere inválido, espera que o usuário digite um caractere válido
+      return;
+    }
+
+    // Obtém o código ASCII do caractere
+    var codigoAscii = caractere.charCodeAt(0);
+
+    // Converte o código ASCII para binário e preenche com zeros à esquerda
+    var binario = codigoAscii.toString(2).padStart(8, '0');
+
+    // Atualiza a exibição dos bits ligados e desligados
+    var binarioHtml = '';
+    for (var i = 0; i < binario.length; i++) {
+      if (binario[i] == '1') {
+        binarioHtml += '<div class="bit-ligado"></div>';
+      } else {
+        binarioHtml += '<div class="bit-desligado"></div>';
+      }
+    }
+    document.getElementById(idBinario).innerHTML = binarioHtml;
+
+    // Foca no próximo campo de entrada
+    if (idCampoSeguinte != '') {
+      document.getElementById(idCampoSeguinte).focus();
+    }
+  }
+}
+
+		function converterAscii(idCampo) {
+			// Obtém o caractere digitado pelo usuário
+			var caractere = document.getElementById(idCampo).value;
+
+			// Obtém o código ASCII do caractere
+			var codigoAscii = caractere.charCodeAt(0);
+
+			// Converte o código ASCII para binário e preenche com zeros à esquerda
+			var binario = codigoAscii.toString(2).padStart(8, '0');
+
+			// Atualiza a exibição dos bits ligados e desligados
+			var binarioHtml = '';
+			for (var i = 0; i < binario.length; i++) {
+				if (binario[i] == '1') {
+					binarioHtml += '<div class="bit-ligado"></div>';
+				} else {
+					binarioHtml += '<div class="bit-desligado"></div>';
+				}
+			}
+
+			// Atualiza a exibição do binário correspondente ao caractere digitado
+			document.getElementById('binario' + idCampo.charAt(idCampo.length - 1)).innerHTML = binarioHtml;
+		}
+	</script>
+</body>
+</html>

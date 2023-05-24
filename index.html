@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Curso de Informática Básica</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="script.js"></script>
+    <style>
+        #introducao {
+            background-color: rgba(255, 255, 255, 0.6);
+            position: relative;
+            padding: 200px;
+        }
+
+        #introducao::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('index.jpg');
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Curso de Informática Básica</h1>
+        <nav>
+            <ul>
+                <li><a href="conceitos.html">Fundamentos</a></li>
+                <li><a href="hardware.html">Hardware</a></li>
+                <li><a href="so.html">Sistema Operacional</a></li>
+                <li><a href="apps.html">Aplicativos</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="introducao">
+            <h2>Introdução</h2>
+            <p>Vivemos num mundo onde a informática é um componente chave em todos os setores. Já imaginou o dia a dia sem o auxílio de computadores, 
+			notebooks e smartphones? </p>
+			<p>Saber o básico de informática é super importante, não só no trabalho, mas também na vida pessoal, já que estamos sempre conectados.</p>
+			<p>Só pra esclarecer, esse curso não é para formar técnicos de manutenção em computadores. Nosso objetivo é bem mais simples, mas muito 
+			útil: queremos que você conheça melhor o seu computador, entenda o sistema operacional e desmistifique alguns termos técnicos frequentes.
+			A meta é que você se sinta mais confortável e seguro ao usar um computador.</p>
+
+			<p> Vamos começar pelos fundamentos. Encontre a opção no menu e clique nela.</p>
+        </section>
+    </main>
+    <footer>
+        <p>Copyright © 2023 Curso de Informática Básica</p>
+    </footer>
+</body>
+</html>

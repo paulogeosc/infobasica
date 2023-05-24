@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Curso de Informática Básica - Periféricos</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Curso de Informática Básica - Periféricos</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="hardware.html">Hardware</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="perifericos">
+            <h2>Periféricos de Entrada e Saída</h2>
+            <div style="display: flex; align-items: center;">
+                <img src="perifericos.png" alt="Imagem de periféricos de entrada e saída" style="width: 30%; margin-right: 20px;">
+                <div>
+                    <h3>Periféricos de Entrada</h3>
+                    <p>Os periféricos de entrada são dispositivos utilizados para inserir informações no computador. Alguns exemplos comuns de periféricos de entrada incluem:</p>                
+                    <h3>Periféricos de Saída</h3>
+                    <p>Os periféricos de saída são dispositivos que exibem ou reproduzem informações processadas pelo computador. Alguns exemplos de periféricos de saída incluem:</p>
+                    <button id="exemplos" onclick="openPopup('tabela.html')">Exemplos</button>
+				</div>
+			</div>
+			<h3>Identificação das Unidades de Disco</h3>
+			<p>O Windows atribui letras a unidades de disco de acordo com a ordem em que elas são detectadas. As letras de unidade mais comuns 
+			incluem:</p>
+			<ul><li><strong>A: e B:</strong> (geralmente reservadas para drives de disquete, que eram populares em sistemas mais antigos, mas são raramente utilizadas 
+				atualmente).</li>
+				<li><strong>C:</strong> (geralmente designada para a unidade principal do sistema, onde o sistema operacional está instalado, como o 
+				disco rígido principal).</li>
+				<li><strong>D:, E:, F: </strong>e assim por diante (para unidades de disco adicionais, como partições de disco rígido, unidades ópticas, 
+				unidades externas e outras unidades de armazenamento conectadas ao computador).
+			</ul>
+			<p>As letras de unidade atribuídas podem variar dependendo da configuração do computador e dos dispositivos conectados a ele. O Windows 
+			também permite que unidades de rede sejam mapeadas para letras de unidade, facilitando o acesso a pastas e arquivos compartilhados 
+			em uma rede local.</p>
+			<h3>Discos SSD e suas vantagens</h3>
+            <p>Os discos SSD (Solid-State Drive) são dispositivos de armazenamento de dados que surgiram como uma alternativa aos discos rígidos mecânicos (HD).</p>
+            <p>As vantagens dos discos SSD sobre os HDs mecânicos incluem:</p>
+            <ul>
+                <li>Velocidade: os discos SSD têm tempos de acesso e taxas de transferência de dados muito mais rápidos em comparação com os HDs mecânicos, resultando em um carregamento mais rápido do sistema operacional e dos aplicativos.</li>
+                <li>Confiabilidade: como não possuem partes móveis, os discos SSD são menos propensos a falhas mecânicas e são mais duráveis.</li>
+                <li>Silêncio: os discos SSD não produzem ruídos, ao contrário dos HDs mecânicos, que possuem componentes mecânicos em movimento.
+			</ul>
+			
+        </section>
+    </main>
+	<script>
+    function openPopup(url) {
+        window.open(url, 'Exemplos de Periféricos', 'height=600,width=800');
+    }
+</script>
+    <footer>
+        <p>Curso de Informática Básica - Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>

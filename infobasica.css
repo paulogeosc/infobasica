@@ -1,0 +1,43 @@
+/* Estilos para as caixas de bits */
+.bit-ligado {
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	border: 1px solid black;
+	margin: 2px;
+}
+
+.bit-desligado {
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	background-color: black;
+	margin: 2px;
+}
+
+/* Estilos para os campos de entrada */
+input[type="text"] {
+	width: 30px;
+	height: 30px;
+	font-size: 20px;
+	text-align: center;
+	margin-right: 10px;
+}
+
+input[type="text"]:focus {
+	outline: none;
+	border-color: blue;
+}
+
+/* Estilos para os rótulos */
+label {
+	display: inline-block;
+	width: 100px;
+	text-align: right;
+	margin-right: 10px;
+}
+
+/* Estilos para os contêineres */
+div {
+	margin-bottom: 10px;
+}

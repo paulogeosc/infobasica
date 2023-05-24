@@ -1,0 +1,73 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+main {
+    padding: 20px;
+    margin-bottom: 100px; /* Ajuste este valor de acordo com a altura do seu rodapé */
+
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 5px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+table {
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+td {
+    border: 1px solid #333;
+    padding: 5px 10px;
+    text-align: center;
+}
+
+input[type="number"] {
+    margin-right: 10px;
+}
+
+button {
+    padding: 5px 10px;
+      background-color: #4CAF50; /* Cor de fundo */
+      border: none; /* Remover a borda */
+      color: white; /* Cor do texto */
+      text-align: center; /* Alinhamento do texto */
+      text-decoration: none; /* Remover sublinhado */
+      display: inline-block; /* Exibir como um bloco */
+      font-size: 16px; /* Tamanho da fonte */
+      cursor: pointer; /* Cursor ao passar o mouse */
+      border-radius: 5px; /* Raio da borda */
+    }
+    
+    /* Estilo para quando o cursor estiver sobre o botão */
+    .meu-botao:hover {
+      background-color: #45a049;
+}

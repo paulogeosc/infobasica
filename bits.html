@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Curso de Informática Básica - Bit e Byte</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="script.js"></script>
+    <style>
+        /* Estilos para a tabela */
+		a {
+			color: white;
+		}
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        td, th {
+            border: 1px solid black;
+            padding: 5px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Curso de Informática Básica - Bit e Byte</h1>
+        <nav>
+			<a href="index.html">Home</a>
+            <a href="conceitos.html">Fundamentos</a>
+        </nav>
+    </header>
+    <main>
+        <section id="bitbyte">
+            <h2>Bit e Byte</h2>
+            <p>Um <strong>bit</strong> é a menor unidade de dados em um computador e pode ter apenas um de dois valores: 0 (desligado) ou 1 (ligado). 
+            Sendo assim, com um único bit somente são possíveis 2 combinações - 0 ou 1, o que seria equivalente a 2 caracteres, como "a" e "b" ou "a" e "A".
+            Conforme aumentamos a quantidade de bits, aumentamos as possibilidades de combinações e, consequentemente, de caracteres.</p>
+            <p>Digite um número de 1 a 8 para ver todas as possíveis combinações de bits:</p>
+            <input type="number" id="bitInput" min="1" max="8">
+            <button onclick="showCombinations()">Mostrar combinações</button>
+            <button onclick="openAsciiTable()">Tabela ASCII</button>
+			<button onclick="clearCombinations()">Unidades de Informação</button>
+			
+            <p id="numCombinations"></p>
+            <table id="output"></table>
+            <div id="hiddenText" style="display: none;">
+                <p>A atual estrutura computacional utiliza um conjunto de 8 bits para formar um único caractere. Esse conjunto de 8 bits recebe o nome <strong>byte</strong>.</p>
+                <h2>Relação entre unidades de informação</h2>
+                <table>
+                    <tr>
+                        <th>Unidade</th>
+                        <th>Valor</th>
+                    </tr>
+                 
+                    <tr>
+                        <td>8 bits</td>
+                        <td>1 byte (B)</td>
+						<td>1 caractere</td>
+                    </tr>
+                    <tr>
+                        <td>1,024 Bytes</td>
+						<td>1 Kilobyte (KB)</td>
+						<td>mil caracteres (pouco mais)</td>
+                    </tr>
+                    <tr>                       
+                        <td>1,024 Kilobytes</td>
+						<td>1 Megabyte (MB)</td>
+						<td>1 milhão de caracteres</td>
+                    </tr>
+                    <tr>                      
+                        <td>1,024 Megabytes</td>
+						<td>1 Gigabyte (GB)</td>
+                        <td>1 bilhão de caracteres</td>
+                    </tr>
+                    <tr>
+                        <td>1,024 Gigabytes</td>
+						<td>1 Terabyte (TB)</td> 
+						<td>1 trilhão de caracteres</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+		<script>
+			function openAsciiTable() {
+				window.open('ascii.html', 'Tabela ASCII', 'width=600,height=600');
+			}
+		</script>		
+    </main>
+    <script>
+        function showCombinations() {
+            const numBits = document.getElementById('bitInput').value;
+            const numCombinations = Math.pow(2, numBits);
+            document.getElementById('numCombinations').textContent = 'Número de combinações: ' + numCombinations;
+
+            let table = '';
+            for (let i = 0; i < numCombinations; i++) {
+                if (i % 20 == 0) table += '<tr>'; // Adiciona uma nova linha a cada 20 combinações
+                table += '<td>' + i.toString(2).padStart(numBits, '0') + '</td>';
+                if (i % 20 == 19 || i == numCombinations - 1) table += '</tr>'; // Fecha a linha a cada 20 combinações ou na última combinação
+            }
+            document.getElementById('output').innerHTML = table;
+            document.getElementById('hiddenText').style.display = 'none'; // Esconde o texto explicativo
+			
+			
+        }
+
+        function clearCombinations() {
+            document.getElementById('output').innerHTML = '';
+            document.getElementById('numCombinations').textContent = '';
+            document.getElementById('hiddenText').style.display = 'block'; // Mostra o texto explicativo
+        }
+    </script>
+</body>
+</html>
